@@ -3,7 +3,16 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 
+Route::get('/product/index', [ProductController::class , 'index'])->name('product.index');
+Route::get('/product/create', [ProductController::class , 'create'])->name('product.create');
+Route::post('/product/create', [ProductController::class , 'store'])->name('product.store');
+
+Route::get('/category/index', [CategoryController::class , 'index'])->name('category.index');
+Route::post('/category/create', [CategoryController::class , 'store'])->name('category.store');
+Route::get('/category/create', [CategoryController::class , 'create'])->name('create');
 Route::get('/register', [AuthController::class , 'showRegister'])->name('showRegister');
 Route::get('/logout', [AuthController::class , 'logout'])->name('logout');
 Route::post('/register', [AuthController::class , 'register'])->name('register');
